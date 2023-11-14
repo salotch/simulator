@@ -42,9 +42,7 @@ public:
         }
     }
 
-
 };
-
 class execute: public Register
 {
 public:
@@ -54,6 +52,5 @@ public:
     void executei();
     string execute2();
     void print();
-
 };
 #endif //SIMULATOR_IMP_H

@@ -6,16 +6,13 @@ void machine::set_file_name(string n) {
 void machine :: load_store_in()
 {
     ifstream file(name);
-
     for(int i=0;!file.eof();++i){
         string s;
         file>>s;
         string g=s.substr(2,1)+s.substr(5,1)+s.substr(8,1)+s.substr(11,1);;
         instruction.push_back(g);
     }
-
 }
-
 void memory::store_memory() {
     for(int i=0,j=0;instruction.size()>i;i++,j++){
         string s;
@@ -35,6 +32,7 @@ void execute::executei() {
 }
 string execute::execute2() {
     return memory_vector[counter];
+counter++;
 }
 
 void execute::print() {

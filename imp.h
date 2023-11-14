@@ -10,9 +10,8 @@ class machine
 protected:
     int counter = 0;
     string name;
-
-public:
     vector <string> instruction;
+public:
     machine(){
         return;
     }

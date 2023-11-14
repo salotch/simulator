@@ -32,7 +32,6 @@ void execute::executei() {
 }
 string execute::execute2() {
     return memory_vector[counter];
-counter++;
 }
 
 void execute::print() {

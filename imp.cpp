@@ -9,7 +9,7 @@ void machine :: load_store_in()
     for(int i=0;!file.eof();++i){
         string s;
         file>>s;
-        string g=s.substr(2,1)+s.substr(5,1)+s.substr(8,1)+s.substr(11,1);;
+        string g=s.substr(2,1)+s.substr(5,1)+s.substr(8,2);
         instruction.push_back(g);
     }
 }

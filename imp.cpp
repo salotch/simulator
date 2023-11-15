@@ -76,17 +76,19 @@ int memory::hexa_to_decimal(string c)
     return decimal;
 }
 void execute::executei() {
-    for(int counter=0;counter<256;counter++) {
+    for(counter=0;counter<256;counter++) {
         string s = memory_vector[counter];
         counter++;
         if (s[0] == '2') {
             register_vector[s[1] - '0'] = execute2();
         }
-        if (s[0] == '3') {
+        else if (s[0] == '3') {
             string k=memory_vector[counter];
             int l = hexa_to_decimal(k);
             memory_vector[l] = register_vector[s[1] - '0'];
         }
+        else if (s[0]=='C' && s[1]=='0' && memory_vector[counter]=="00" )
+            break;
     }
 }
 

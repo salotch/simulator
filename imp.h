@@ -11,10 +11,10 @@ using namespace std;
 class machine
 {
 protected:
-    int counter = 0;
     string name;
     vector <string> instruction;
 public:
+    int counter = 0;
     machine(){
         return;
     }

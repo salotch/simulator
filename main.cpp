@@ -5,19 +5,14 @@ int main()
 cout<<"Welcome to Machine Language Simulator!\n";
 cout<<"Enter File Instruction Name :";
 cin>>s;
-bool valid;
 execute h;
-do{valid=true;
     h.set_file_name(s);
     h.load_store_in();
     if(h.check_valid())
-    {  cout<<"Edit Instruction in The File!";
-        valid=false;
-    }
-}while(!valid);
+        return 0;
     h.store_memory();
     h.executei();
     h.print();
-
+    cout<<"Counter is Equal to :"<<hex<<h.counter+1;
     return 0;
 }

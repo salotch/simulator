@@ -34,6 +34,7 @@ public:
     void store_memory();
     void read_memory();
     int hexa_to_decimal(string c);
+    string add(string c1,string s1);
 
 };
 

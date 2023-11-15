@@ -3,6 +3,7 @@
 void machine::set_file_name(string n) {
     name=n;
 }
+
 void machine :: load_store_in()
 {
     ifstream file(name);
@@ -13,6 +14,7 @@ void machine :: load_store_in()
         instruction.push_back(g);
     }
 }
+
 void memory::store_memory() {
     for(int i=0,j=0;instruction.size()>i;i++,j++){
         string s;
@@ -65,7 +67,6 @@ int memory::hexa_to_decimal(string c)
                 b3="0"+b3;
             }
         }
-
     }
     binary=b2+b3;// we do b2 and b3 to make each of them 4bite and after we add become 8
     for(int k=7;k>=0;k--)
@@ -88,6 +89,7 @@ void execute::executei() {
         }
     }
 }
+
 string execute::execute2() {
     return memory_vector[counter];
 }

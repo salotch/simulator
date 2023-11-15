@@ -28,7 +28,7 @@ int memory::hexa_to_decimal(string c)
     string b2 ;//will store half binary num
     string b3;//will store another half number
     string A_F="ABCDEF"; // the benefit from this string to check if the char not num
-    int k,d,decimal;//k is the char that will be transform,d is store the diff size to complete missing by zero/decimal to store decimal num
+    int k,d,decimal=0;//k is the char that will be transform,d is store the diff size to complete missing by zero/decimal to store decimal num
     int flag=0;// boolean that mean if it is =1 that char is character not num
     for(int i=0;i<2;i++) {
         flag=0;
@@ -52,7 +52,7 @@ int memory::hexa_to_decimal(string c)
                 b2="0"+b2;
             }
         }
-        else
+        else if(i==1)
         {
             while (k != 0) {
                 b3 += to_string(k % 2);
@@ -82,12 +82,10 @@ void execute::executei() {
             register_vector[s[1] - '0'] = memory_vector[counter];
         }
         if (s[0] == '3') {
-            cout<<memory_vector[counter]<<endl<<endl<<endl;
-            int l = hexa_to_decimal(memory_vector[counter]);
-
+            string k=memory_vector[counter];
+            int l = hexa_to_decimal(k);
             memory_vector[l] = register_vector[s[1] - '0'];
         }
-
     }
 }
 string execute::execute2() {
@@ -102,5 +100,4 @@ void execute::print() {
     for (int i = 0; i < register_vector.size(); ++i) {
         cout<<register_vector[i]<<endl;
     }
-
 }

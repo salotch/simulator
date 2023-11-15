@@ -79,7 +79,7 @@ void execute::executei() {
         string s = memory_vector[counter];
         counter++;
         if (s[0] == '2') {
-            register_vector[s[1] - '0'] = memory_vector[counter];
+            register_vector[s[1] - '0'] = execute2();
         }
         if (s[0] == '3') {
             string k=memory_vector[counter];

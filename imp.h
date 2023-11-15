@@ -4,6 +4,8 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include<algorithm>
+#include <math.h>
 using namespace std;
 class machine
 {
@@ -29,6 +31,7 @@ public:
     }
     void store_memory();
     void read_memory();
+    int hexa_to_decimal(string c);
 
 };
 

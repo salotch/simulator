@@ -1,6 +1,7 @@
 #include "imp.cpp"
 using namespace std;
-int main(){
+int main()
+{
     execute h;
     h.set_file_name("saloka");
     h.load_store_in();

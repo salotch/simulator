@@ -14,7 +14,17 @@ void machine :: load_store_in()
         instruction.push_back(g);
     }
 }
+bool machine :: check_valid() {
+    for (int i = 0; i < instruction.size(); ++i) {
 
+        if (!regex_match(instruction[i], regex("^[1-5BC][0-9A-F]*")))
+        {
+            cout << "There is Invalid Instruction";
+            return true;
+        }
+    }
+    return false;
+}
 void memory::store_memory() {
     for(int i=0,j=0;instruction.size()>i;i++,j++){
         string s;
@@ -31,7 +41,7 @@ int memory::hexa_to_decimal(string c)
     string b3;//will store another half number
     string A_F="ABCDEF"; // the benefit from this string to check if the char not num
     int k,d,decimal=0;//k is the char that will be transform,d is store the diff size to complete missing by zero/decimal to store decimal num
-    int flag=0;// boolean that mean if it is =1 that char is character not num
+    int flag;// boolean that mean if it is =1 that char is character not num
     for(int i=0;i<2;i++) {
         flag=0;
         for (int j = 0; j < 7; j++){
@@ -49,7 +59,7 @@ int memory::hexa_to_decimal(string c)
             }
             reverse(b2.begin(),b2.end());// reverse bec when we transform it wriiten for ex 01 and I want it 10
             d=4-b2.size();
-            for(int i=0;i<d;i++)
+            for(int j=0;j<d;j++)
             {
                 b2="0"+b2;
             }
@@ -62,16 +72,16 @@ int memory::hexa_to_decimal(string c)
             }
             reverse(b3.begin(),b3.end());
             d=4-b3.size();
-            for(int i=0;i<d;i++)
+            for(int j=0;j<d;j++)
             {
                 b3="0"+b3;
             }
         }
     }
     binary=b2+b3;// we do b2 and b3 to make each of them 4bite and after we add become 8
-    for(int k=7;k>=0;k--)
+    for(int j=7;j>=0;j--)
     {
-        decimal+=((binary[k]-'0')*pow(2,7-k));
+        decimal+=( (binary[j]-'0')*pow(2,7-j) );
     }
     return decimal;
 }

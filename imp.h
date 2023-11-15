@@ -5,7 +5,8 @@
 #include <fstream>
 #include <iostream>
 #include<algorithm>
-#include <math.h>
+#include <cmath>
+#include <regex>
 using namespace std;
 class machine
 {
@@ -19,6 +20,7 @@ public:
     }
     void set_file_name(string n);
     void load_store_in();
+    bool check_valid();
 };
 class memory:public machine{
 public:
@@ -44,7 +46,6 @@ public:
             register_vector.push_back("00");
         }
     }
-
 };
 class execute: public Register
 {

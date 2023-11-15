@@ -128,13 +128,25 @@ void execute::executei() {
     for(counter=0;counter<256;counter++) {
         string s = memory_vector[counter];
         counter++;
-        if (s[0] == '2') {
+        if (s[0] == '1') {
+            int  decimal_value=hexa_to_decimal(memory_vector[counter]) ;
+            register_vector[s[1] - '0'] = memory_vector[decimal_value];
+        }
+
+        else if (s[0] == '2') {
             register_vector[s[1] - '0'] = execute2();
         }
         else if (s[0] == '3') {
             string k=memory_vector[counter];
             int l = hexa_to_decimal(k);
             memory_vector[l] = register_vector[s[1] - '0'];
+        }
+        else if (s[0] == '4') {
+            register_vector[s[3] - '0'] =register_vector[s[2] - '0'] ;
+        }
+        else if (s[0]=='5') {
+            string k = memory_vector[counter];
+            register_vector[s[1] - '0'] = add(register_vector[k[0] - '0'], register_vector[k[1] - '0']);
         }
         else if (s[0]=='B') //B mean that we want to jump and escape from another instruction if the condition is satisfied
         {
@@ -144,10 +156,7 @@ void execute::executei() {
                 counter = l-1;//that make the jump
             }
         }
-        else if (s[0]=='5') {
-            string k = memory_vector[counter];
-            register_vector[s[1] - '0'] = add(register_vector[k[0] - '0'], register_vector[k[1] - '0']);
-        }
+
         else if (s[0]=='C' && s[1]=='0' && memory_vector[counter]=="00" )
             break;
     }

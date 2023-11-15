@@ -131,7 +131,7 @@ void execute::executei() {
         if (s[0] == '1') {
             int  decimal_value=hexa_to_decimal(memory_vector[counter]) ;
             register_vector[s[1] - '0'] = memory_vector[decimal_value];
-        }
+        }// this code if the first char ==1 will make the contest of the certain adress to be accessed and saved in memory that specified
 
         else if (s[0] == '2') {
             register_vector[s[1] - '0'] = execute2();
@@ -143,7 +143,8 @@ void execute::executei() {
         }
         else if (s[0] == '4') {
             register_vector[s[3] - '0'] =register_vector[s[2] - '0'] ;
-        }
+        }//this code saves the contests of the seccond register to the first register
+
         else if (s[0]=='5') {
             string k = memory_vector[counter];
             register_vector[s[1] - '0'] = add(register_vector[k[0] - '0'], register_vector[k[1] - '0']);

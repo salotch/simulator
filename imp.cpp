@@ -152,17 +152,25 @@ void execute::executei() {
             break;
     }
 }
-
 string execute::execute2() {
     return memory_vector[counter];
 }
 
 void execute::print() {
+    cout<<"Memory content:               \n";
     for (int i = 0; i < memory_vector.size(); ++i) {
-        cout<<memory_vector[i]<<endl;
+        if(i<10)
+            cout<<"0"<<i;
+        else
+            cout<<hex<<uppercase<<i;
+        cout<<" : "<<memory_vector[i]<<endl;
     }
-    cout<<" register               \n";
+    cout<<"Register content:               \n";
     for (int i = 0; i < register_vector.size(); ++i) {
-        cout<<register_vector[i]<<endl;
+        if(i<10)
+            cout<<"0"<<i;
+        else
+          cout<<"0"<<hex<<uppercase<<i;
+        cout<<" : "<<register_vector[i]<<endl;
     }
 }

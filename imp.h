@@ -28,11 +28,10 @@ public:
     memory()
     {
         for (int i = 0; i < 256; ++i) {
-            memory_vector.push_back("00");
+            memory_vector.emplace_back("00");
         }
     }
     void store_memory();
-    void read_memory();
     int hexa_to_decimal(string c);
     string add(string c1,string s1);
 
@@ -44,7 +43,7 @@ public:
     vector <string> register_vector;
     Register(){
         for (int i = 0; i < 16; ++i) {
-            register_vector.push_back("00");
+            register_vector.emplace_back("00");
         }
     }
 };

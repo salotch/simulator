@@ -34,25 +34,23 @@ void memory::store_memory() {
         memory_vector[j]=s.substr(2,2);
     }
 }
-string memory:: add(string c1,string s1)
+string memory :: add(string n1,string n2)
 {
     int c=0;
-    string n1=c1;
-    string n2=s1;
     string s,A_F={"ABCDEF"};// the sum, and hexadecimal numbers
     for(int k=1;0<=k;k--)//just 2 digits to neglect the overflow
     {
         int x=0,y=0,l=0;
-        if(n1[k]>=48&&n2[k]<=57)
+        if(n1[k]>=48&&n1[k]<=57)
             x=n1[k]-'0';//to convert the string to int
         if(n2[k]>=48&&n2[k]<=57)//to convert the string to int
             y=n2[k]-'0';
-        for (int j = 0; j < 7; j++){
+        for (int j = 0; j < 6; j++){
             if (n1[k] == A_F[j]) {
                 x = j + 10;//to make k= 10 or 11 or 12...
             }
         }
-        for (int j = 0; j < 7; j++){
+        for (int j = 0; j < 6; j++){
             if (n2[k] == A_F[j]) {
                 y = j + 10;//to make k= 10 or 11 or 12...
             }
@@ -63,15 +61,20 @@ string memory:: add(string c1,string s1)
             l -= 16;
             c = 1;
         }
-        for(int j=0;j<7;j++)//this loop to give every number his value in hexadecimal
-            if(l==10+j)
-                s+=A_F[j];
+        if(l>=10) {
+            for (int j = 0; j < 6; j++)//this loop to give every number his value in hexadecimal
+            {
+                if (l == 10 + j)
+                    s += A_F[j];
+            }
+        }
         if(l<10)
             s+= to_string(l);
 
     }
     reverse(s.begin(), s.end());//the data was stored reversed
     return s;
+
 }
 int memory::hexa_to_decimal(string c)
 {
@@ -83,7 +86,7 @@ int memory::hexa_to_decimal(string c)
     int flag;// boolean that mean if it is =1 that char is character not num
     for(int i=0;i<2;i++) {
         flag=0;
-        for (int j = 0; j < 7; j++){
+        for (int j = 0; j < 6; j++){
             if (c[i] == A_F[j]) {
                 k = j + 10;//to make k= 10 or 11 or 12.....
                 flag = 1;
@@ -147,7 +150,7 @@ void execute::executei() {
 
         else if (s[0]=='5') {
             string k = memory_vector[counter];
-            register_vector[s[1] - '0'] = add(register_vector[k[0] - '0'], register_vector[k[1] - '0']);
+            register_vector[s[1]-'0']= add(register_vector[k[0] - '0'], register_vector[k[1] - '0']);
         }
         else if (s[0]=='B') //B mean that we want to jump and escape from another instruction if the condition is satisfied
         {

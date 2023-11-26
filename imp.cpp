@@ -1,7 +1,7 @@
 #include "imp.h"
 
 void machine::set_file_name(string n) {
-    name=n;
+    name = n;
 }
 
 void machine :: load_store_in()
@@ -82,7 +82,7 @@ int memory::hexa_to_decimal(string c)
     string b2 ;//will store half binary num
     string b3;//will store another half number
     string A_F="ABCDEF"; // the benefit from this string to check if the char not num
-    int k,d,decimal=0;//k is the char that will be transform,d is store the diff size to complete missing by zero/decimal to store decimal num
+    int k,d,decimal=0;//k is the char that will be transformed,d is store the diff size to complete missing by zero/decimal to store decimal num
     int flag;// boolean that mean if it is =1 that char is character not num
     for(int i=0;i<2;i++) {
         flag=0;
@@ -120,7 +120,7 @@ int memory::hexa_to_decimal(string c)
             }
         }
     }
-    binary=b2+b3;// we do b2 and b3 to make each of them 4bite and after we add become 8
+    binary=b2+b3;// we do b2 and b3 to make each of them 4bite, and after we add become 8
     for(int j=7;j>=0;j--)
     {
         decimal+=( (binary[j]-'0')*pow(2,7-j) );
